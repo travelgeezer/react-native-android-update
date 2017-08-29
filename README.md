@@ -71,3 +71,9 @@ import AndroidUpdateApp from 'react-native-android-update.13';
   }
 }
 ```
+
+
+Thanks to
+---
+
+- [AppUpdate](https://github.com/WVector/AppUpdate)
