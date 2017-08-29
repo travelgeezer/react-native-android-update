@@ -14,3 +14,5 @@ bower_components
 # Xcode
 
 xcuserdata
+
+.DS_Store
