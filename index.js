@@ -1,6 +1,8 @@
-import { NativeModules } from 'react-native';
+import { NativeModules, Platform } from 'react-native';
 const AndroidUpdateApp =  NativeModules.AndroidUpdateApp;
 
 export default {
-  updateAndroid: (updateUrl, key) => AndroidUpdateApp.updateAndroid(updateUrl, key)
+  updateAndroid: Platform.OS == 'android'
+   ? (updateUrl, key) => AndroidUpdateApp.updateAndroid(updateUrl, key)
+   : () => {}
 }
