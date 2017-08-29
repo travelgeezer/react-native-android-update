@@ -24,7 +24,7 @@ public class UpdateModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void updateAndroid(String key, String updateUrl) {
+    public void updateAndroid(String updateUrl, String key) {
         new UpdateAppManager
                 .Builder()
                 //当前Activity
