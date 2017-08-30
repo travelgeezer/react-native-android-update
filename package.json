@@ -1,6 +1,6 @@
 {
   "name": "react-native-android-update.13",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "update android app",
   "main": "index.js",
   "scripts": {
