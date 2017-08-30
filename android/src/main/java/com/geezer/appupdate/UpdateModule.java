@@ -1,4 +1,4 @@
-package com.geezer.appupdate.module;
+package com.geezer.appupdate;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
