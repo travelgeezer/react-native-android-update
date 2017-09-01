@@ -232,7 +232,7 @@ public class DownloadService extends Service {
 
         @Override
         public void onError(String error) {
-            Toast.makeText(DownloadService.this, "更新新版本出错，" + error, Toast.LENGTH_SHORT).show();
+            Toast.makeText(DownloadService.this, "更新新版本出错，当前网络异常请稍后重试" , Toast.LENGTH_SHORT).show();
             //App前台运行
             if (mCallBack != null) {
                 mCallBack.onError(error);
