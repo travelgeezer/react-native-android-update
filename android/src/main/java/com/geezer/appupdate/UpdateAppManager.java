@@ -306,7 +306,7 @@ public class UpdateAppManager {
      */
     private void processData(String result, @NonNull UpdateCallback callback) {
         try {
-             mUpdateApp = callback.parseJson(result);
+            mUpdateApp = callback.parseJson(result);
             if (mUpdateApp.isUpdate()) {
                 callback.hasNewApp(mUpdateApp, this);
                 //假如是静默下载，可能需要判断，
@@ -495,7 +495,13 @@ public class UpdateAppManager {
                 throw new NullPointerException("必要参数不能为空");
             }
             if (TextUtils.isEmpty(getTargetPath())) {
-                String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath();
+                String path = "";
+                if (Environment.getExternalStorageState().equals(
+                        Environment.MEDIA_MOUNTED)) {
+                    path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath();
+                } else {
+                    path = getActivity().getFilesDir().getAbsolutePath() + Environment.getDownloadCacheDirectory().getAbsolutePath();
+                }
                 setTargetPath(path);
             }
             if (TextUtils.isEmpty(getAppKey())) {
