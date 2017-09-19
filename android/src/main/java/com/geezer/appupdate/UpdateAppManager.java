@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.ServiceConnection;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.IBinder;
@@ -497,7 +498,8 @@ public class UpdateAppManager {
             if (TextUtils.isEmpty(getTargetPath())) {
                 String path = "";
                 if (Environment.getExternalStorageState().equals(
-                        Environment.MEDIA_MOUNTED)) {
+                        Environment.MEDIA_MOUNTED) &&
+                        Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
                     path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath();
                 } else {
                     path = getActivity().getFilesDir().getAbsolutePath() + Environment.getDownloadCacheDirectory().getAbsolutePath();
