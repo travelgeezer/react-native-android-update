@@ -258,7 +258,8 @@ public class DownloadService extends Service {
 
 
             try {
-                if (file.getAbsolutePath().contains(getPackageName())) {
+                if (file.getAbsolutePath().contains(getPackageName()) &&
+                        Build.VERSION.SDK_INT <= Build.VERSION_CODES.KITKAT) {
                     Runtime runtime = Runtime.getRuntime();
                     String[] args0 = {"chmod", "705", file.getParentFile().getParentFile().getAbsolutePath()};
                     runtime.exec(args0);
